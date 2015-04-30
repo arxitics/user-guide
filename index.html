@@ -5,6 +5,7 @@
     <title>User Guide for arXiv Analytics</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=680, user-scalable=no">
+    <link rel="stylesheet" href="http://oss.arxitics.com/ui-schema/dist/ui-schema-0.2.8.min.css">
     <link rel="stylesheet" href="http://oss.arxitics.com/slides/dist/shower-bright-1.0.10.min.css">
     <link rel="dns-prefetch" href="http://cdn.mathjax.org/">
     <style>
@@ -13,6 +14,10 @@
       }
       .list .slide {
         cursor: pointer;
+      }
+      .slide > div {
+        height: 576px;
+        padding-top: 64px;
       }
     </style>
   </head>
@@ -24,194 +29,853 @@
 
     <section class="slide">
       <div>
-        <h2>Header</h2>
-        <p>Main content.</p>
-        <p class="note">Powered by <a href="https://github.com/shower/">Shower Presentation Engine</a></p>
-      </div>
-    </section>
-
-    <section class="slide">
-      <div>
-        <h2>Header</h2>
-        <p>Main content.</p>
-        <p class="note">This is a note.</p>
+        <h2>User Guide for arXiv Analytics</h2>
+        <ul>
+          <li><strong>Website</strong>: <a href="http://arxitics.com">http://arxitics.com</a></li>
+          <li><strong>Service</strong>: <a href="mailto:help@arxitics.com">help@arxitics.com</a></li>
+          <li><strong>Project</strong>: <a href="https://github.com/arxitics/arxiv-analytics">https://github.com/arxitics/arxiv-analytics</a></li>
+        </ul>
+        <p class="note">Slides created by <a href="https://github.com/shower/">Shower Presentation Engine</a></p>
         <footer>
-          <p>This is a footer.</p>
+          <ul>
+            <li>Click any slide to switch from list to presentation mode</li>
+            <li>Use keyboard shortcuts to navigate between slides</li>
+          </ul>
         </footer>
       </div>
     </section>
 
     <section class="slide">
       <div>
-        <h2>Lists in English typography</h2>
-        <ol>
-          <li>Locavore umami vegan helvetica</li>
-          <li>Fingerstache kale chips</li>
-          <li>Keytar sriracha gluten-free</li>
-        </ol>
+        <h2>Features</h2>
         <ul>
-          <li>Ennui keffiyeh thundercats</li>
-          <li>Jean shorts biodiesel</li>
-          <li>Terry richardson, swag blog</li>
+          <li><a href="http://arxitics.com/search">Advanced search interface to find articles</a></li>
+          <li><a href="http://arxitics.com/explore">Analysis, visualization, and recommendations</a></li>
+          <li><a href="http://arxitics.com/help/subscription">Subscribe to specific categories, keywords, and authors</a></li>
+          <li><a href="http://arxitics.com/help/bookmarks">Collect interesting articles and reviews</a></li>
+          <li><a href="http://arxitics.com/help/reviews">Post your reviews and make comments</a></li>
+          <li><a href="http://arxitics.com/help/metadata">Revise and extend metadata fields</a></li>
+          <li><a href="http://arxitics.com/help/documents">Share your unpublished documents</a></li>
+          <li><a href="http://arxitics.com/chat">Real-time and collaborative chat for the community</a></li>
         </ul>
       </div>
     </section>
 
     <section class="slide">
       <div>
-        <h2>Quote</h2>
-        <figure>
-          <blockquote>
-            <p>Typewriter etsy messenger bag fingerstache, aesthetic vinyl semiotics twee DIY forage chillwave. Thundercats ennui messenger bag, squid carles chillwave shoreditch pickled cliche letterpress.</p>
-          </blockquote>
-          <figcaption>Author Name</figcaption>
-        </figure>
-        <p>DIY beard locavore occupy salvia, whatever single-origin coffee fanny pack 3 wolf moon typewriter gastropub kale chips.</p>
+        <h2>Search Engine</h2>
+        <ul>
+          <li>Powered by <a href="http://www.mongodb.org/">MongoDB</a></li>
+          <li>More than 1 million documents</li>
+          <li>As many as 50+ metadata fields</li>
+          <li>17 single field indexes and 1 text index</li>
+          <li>Supports full-text search, but sometimes <span class="ui-color-danger">slow</span></li>
+          <li>Accepts <a href="http://json.org/">JSON</a> to construct complicated query expressions</li>
+        </ul>
       </div>
     </section>
 
     <section class="slide">
       <div>
-        <h2>Table</h2>
-        <table>
-          <tr>
-            <th scope="col">Locavore</th>
-            <th>Umami</th>
-            <th>Helvetica</th>
-            <th>Vegan</th>
-          </tr>
-          <tr>
-            <th scope="row">Fingerstache</th>
-            <td>Kale</td>
-            <td>Chips</td>
-            <td>Keytar</td>
-          </tr>
-          <tr>
-            <th scope="row">Sriracha</th>
-            <td>Gluten-free</td>
-            <td>Ennui</td>
-            <td>Keffiyeh</td>
-          </tr>
+        <h2>Search Syntax</h2>
+        <ul>
+          <li>Full-text search
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="&quot;topological kondo insulator&quot; -surface">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Keyword-style search
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="category: /^(math|cs)\./ comment: github">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">JSON string
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="{&quot;authors[$size]&quot;: 1, &quot;analyses.tags&quot;: &quot;renowned paper&quot;}">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <h2>Redirects</h2>
+        <ul>
+          <li>arXiv identifier
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="hep-th/0312171">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Digital object identifier (DOI)
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="10.1007/s00220-004-1187-3">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Only <span class="ui-color-danger">one</span> result is found for your query</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <h2>Full-text Search</h2>
+        <ul>
+          <li>Match any of the search terms
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="topological kondo insulator">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Search for an exact phrase
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="&quot;topological kondo insulator&quot;">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Exclude documents that contain a term
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="&quot;topological kondo insulator&quot; -surface">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <h2>Keyword-style Search</h2>
+        <ul>
+          <li>Specify equality condition
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="category: quant-ph">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Equality match on fields within an embedded document
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="publication.journal: Rev. Mod. Phys.">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Specify AND conditions on multiple fields
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="category: quant-ph journal: Rev. Mod. Phys.">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <h2>Search Array Fields</h2>
+        <ul>
+          <li>Specify <span class="ui-color-warning">OR</span> conditions
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="categories: cs.CC, cs.DM">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Specify <span class="ui-color-warning">AND</span> conditions
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="categories: cs.CC; cs.DM">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Specify <span class="ui-color-warning">OR</span> as well as <span class="ui-color-warning">AND</span> conditions
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="categories: cs.CC, cs.DM; math.CO">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <ul>
+          <li class="ui-skip-large">Match a specific element at a particular index
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="authors.affiliations.0: IAS">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Match a field in the embedded document using the array index
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="authors.0.affiliations: IAS">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Match a field in the embedded document without specifying array index
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="authors.affiliations: IAS">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <h2>Query Operators</h2>
+        <ul>
+          <li>Matches all values that are not equal to a specified value
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="note.language[$ne]: en">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Matches any of the values specified in an array
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="note.language[$in]: fr, ru">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Matches none of the values specified in an array
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="note.language[$nin]: en, fr, ru">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <ul>
+          <li>Matches values that are greater than a specified value
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="citations.count[$gt]: 1000">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-medium">Matches values that are less than a specified value
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="citations.count[$lt]: 1000">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-medium">Matches values that are greater than or equal to a specified value
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="note.pages[$gte]: 200">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-medium">Matches values that are less than or equal to a specified value
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="note.pages[$lte]: 200">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <ul class="ui-skip-large">
+          <li>Join query clauses with a logical <span class="ui-color-warning">OR</span>
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="$or[journal]: null $or[doi]: null">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Join query clauses with a logical <span class="ui-color-warning">AND</span>
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="$and[journal]: null $and[doi]: null">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Join query clauses with a logical <span class="ui-color-warning">NOR</span>
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="$nor[journal]: null $nor[doi]: null">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <ul class="ui-skip-large">
+          <li class="ui-skip-large">Match documents that have the specified field
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="publication.journal[$exists]: true">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Select documents if a field is of the specified type
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="publication.number[$type]: 2">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Select documents if the array field is a specified size
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="analyses.subjects[$size]: 5">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <ul class="ui-skip-large">
+          <li class="ui-skip-large">Select documents where values match a specified regular expression
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="authors[$regex]: E(dward|.) Witten">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Match documents that satisfy a JavaScript expression
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="$where: &quot;this.title.length < 20&quot;">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Perform full-text search
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="$text: amplituhedron">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <ul class="ui-skip-large">
+          <li class="ui-skip-large">Matches documents that have the specified field
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="publication.journal[$exists]: true">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Selects documents if a field is of the specified type
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="publication.number[$type]: 2">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Selects documents if the array field is a specified size
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="analyses.subjects[$size]: 5">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <h2>Date Range</h2>
+        <ul>
+          <li>Sepecify the date in the form of <span class="ui-color-warning">yyyy-mm-dd</span> or part of it
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="category: hep-th published: 1991-08">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Sepecify the date with <span class="ui-color-warning">date-range</span> and a special word
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="category: hep-th date-range: past-month">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Sepecify the date with <span class="ui-color-warning">date-from</span> and <span class="ui-color-warning">date-to</span>
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="category: hep-th date-range: custom date-to: 1992">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <h2>Cursor Methods</h2>
+        <ul>
+          <li>Order documents in the result set
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="category: cs.SC sort: published order: ascending">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Set the starting point of the result set
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="category: cs.SC skip: 500">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Limit the number of documents to return
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="category: cs.SC limit: 100">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <h2>More Search Examples</h2>
+        <ul>
+          <li>Mixing of full-text search and keyword-style search
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="&quot;dark matter phenomenology&quot; category: astro-ph.CO">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Specify how many results are shown per page
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="category: astro-ph.CO perpage: 100">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+          <li class="ui-skip-large">Specify the page number of search results
+            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
+              <div class="ui-input-addon">
+                <input type="search" name="q" value="category: astro-ph.CO page: 20">
+                <button type="submit"><i data-schema-icon="search">Go!</i></button>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <h2>Search Tips</h2>
+        <ul>
+          <li>The field names of arrays are plurals</li>
+          <li>Keyword-style queries on most fields are case-sensitive</li>
+          <li>Always specify <span class="ui-color-warning">categories</span> to filter eprints</li>
+          <li>Avoid full-text search when possible</li>
+          <li>Specify a <span class="ui-color-warning">limit</span> if there are maybe too many results</li>
+          <li>Try to specify more conditions if no results are found</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <h2>Metadata Fields</h2>
+        <table class="ui-table-fluid ui-table-striped">
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Type</th>
+              <th>Examples or Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>id</td>
+              <td>String</td>
+              <td>hep-th/0312171, 1212.5605</td>
+            </tr>
+            <tr>
+              <td>version</td>
+              <td>String</td>
+              <td>v2</td>
+            </tr>
+            <tr>
+              <td>published</td>
+              <td>ISODate</td>
+              <td>2003-12-15T20:11:07Z</td>
+            </tr>
+            <tr>
+              <td>updated</td>
+              <td>ISODate</td>
+              <td>2004-10-06T16:01:38Z</td>
+            </tr>
+            <tr>
+              <td>title</td>
+              <td>String</td>
+              <td>Use regular expressions for match</td>
+            </tr>
+            <tr>
+              <td>authors</td>
+              <td>Array::String</td>
+              <td>Edward Witten, E. Witten</td>
+            </tr>
+          </tbody>
         </table>
-        <p>Typewriter etsy messenger bag fingerstache.</p>
       </div>
     </section>
 
     <section class="slide">
       <div>
-        <h2>Numbered code listing</h2>
-        <pre>
-          <code>&lt;html lang="en"&gt;</code>
-          <code>  <mark>&lt;head&gt;</mark> <mark class="comment">&lt;!--Comment--&gt;</mark></code>
-          <code>    &lt;title&gt;Shower&lt;/title&gt;</code>
-          <code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
-          <code>    &lt;link rel="stylesheet" href="s/screen.css"&gt;</code>
-          <code>    &lt;script src="j/jquery.js"&gt;&lt;/script&gt;</code>
-          <code>  <mark>&lt;/head&gt;</mark></code>
-        </pre>
-      </div>
-    </section>
-
-    <section class="slide shout grow">
-      <div>
-        <h2>You Can<br> Shout This Way</h2>
-        <footer>
-          <p>Typewriter etsy messenger bag fingerstache.</p>
-        </footer>
-      </div>
-    </section>
-
-    <section class="slide shout shrink">
-      <div>
-        <h2><a href="">Linked Shout</a></h2>
-      </div>
-    </section>
-
-    <section class="slide shout right">
-      <div>
-        <h2>Sliding Right</h2>
-      </div>
-    </section>
-
-    <section class="slide shout up">
-      <div>
-        <h2>Sliding Up</h2>
-      </div>
-    </section>
-
-    <section class="slide cover">
-      <div>
-        <img src="pictures/exact.png" alt="">
-      </div>
-    </section>
-
-    <section class="slide cover w">
-      <div>
-        <img src="pictures/wide.png" alt="">
-      </div>
-    </section>
-
-    <section class="slide cover h">
-      <div>
-        <img src="pictures/tall.png" alt="">
-        <footer>
-          <p>Typewriter etsy messenger bag fingerstache.</p>
-        </footer>
-      </div>
-    </section>
-
-    <section class="slide shout">
-      <div>
-        <img src="pictures/square.png" alt="" class="place t l">
-        <img src="pictures/square.png" alt="" class="place t">
-        <img src="pictures/square.png" alt="" class="place t r">
-        <img src="pictures/square.png" alt="" class="place l">
-        <img src="pictures/square.png" alt="" class="place">
-        <img src="pictures/square.png" alt="" class="place r">
-        <img src="pictures/square.png" alt="" class="place b l">
-        <img src="pictures/square.png" alt="" class="place b">
-        <img src="pictures/square.png" alt="" class="place b r">
-      </div>
-    </section>
-
-    <section class="slide" data-timing="00:03">
-      <div>
-        <h2>Timer</h2>
-        <p>Three seconds to go.</p>
+        <table class="ui-table-fluid ui-table-striped">
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Type</th>
+              <th>Examples or Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>comment</td>
+              <td>String</td>
+              <td>Use regular expressions for match</td>
+            </tr>
+            <tr>
+              <td>journal</td>
+              <td>String</td>
+              <td>Use regular expressions for match</td>
+            </tr>
+            <tr>
+              <td>doi</td>
+              <td>String</td>
+              <td>10.1007/s00220-004-1187-3</td>
+            </tr>
+            <tr>
+              <td>categories</td>
+              <td>Array::String</td>
+              <td>hep-th, math.QA, cs.AI</td>
+            </tr>
+            <tr>
+              <td>abstract</td>
+              <td>String</td>
+              <td>Use regular expressions for match</td>
+            </tr>
+            <tr>
+              <td>revisions</td>
+              <td>Array::Object</td>
+              <td>Fields: version, updated, journal, doi</td>
+            </tr>
+            <tr>
+              <td>resources</td>
+              <td>Array::Object</td>
+              <td>Fields: type, source, title, href, status</td>
+            </tr>
+            <tr>
+              <td>analyses</td>
+              <td>Object</td>
+              <td>Fields: authors, subjects, themes, ..., note</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
     <section class="slide">
       <div>
-        <h2>List navigation</h2>
-        <ol>
-          <li>Ennui keffiyeh thundercats</li>
-          <li class="next">Jean shorts biodiesel</li>
-          <li class="next">Terry richardson, swag blog</li>
-          <li class="next">Locavore umami vegan helvetica</li>
-          <li class="next">Fingerstache kale chips</li>
-        </ol>
-        <p class="next">Before they sold out master</p>
+        <h2>Metadata Field: analyses</h2>
+        <table class="ui-table-fluid ui-table-striped">
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Type</th>
+              <th>Examples or Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>authors</td>
+              <td>Array::Object</td>
+              <td>Fields: name, orcid, identifier, affiliations</td>
+            </tr>
+            <tr>
+              <td>subjects</td>
+              <td>Array::String</td>
+              <td>11.15.Ha, 81T25, J.2, C87</td>
+            </tr>
+            <tr>
+              <td>themes</td>
+              <td>Array::Object</td>
+              <td>Fields: category, topics (Array::String)</td>
+            </tr>
+            <tr>
+              <td>keywords</td>
+              <td>Array::String</td>
+              <td>twistor space, amplituhedron</td>
+            </tr>
+            <tr>
+              <td>tags</td>
+              <td>Array::String</td>
+              <td>journal articles, renowned paper</td>
+            </tr>
+            <tr>
+              <td>citations</td>
+              <td>Array::Object</td>
+              <td>Fields: service, updated, count</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
     <section class="slide">
       <div>
-        <h2>List navigation</h2>
-        <ol>
-          <li>Ennui keffiyeh thundercats</li>
-          <li class="next">Jean shorts biodiesel</li>
-          <li class="next">Terry richardson, swag blog</li>
-          <li class="next">Locavore umami vegan helvetica</li>
-          <li class="next">Fingerstache kale chips</li>
-        </ol>
-        <p class="next">Before they sold out master</p>
+        <h2>Metadata Field: analyses.feedback</h2>
+        <table class="ui-table-fluid ui-table-striped">
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Type</th>
+              <th>Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>views</td>
+              <td>Integer</td>
+              <td>Count of article views</td>
+            </tr>
+            <tr>
+              <td>reviews</td>
+              <td>Integer</td>
+              <td>Count of reviews on the article</td>
+            </tr>
+            <tr>
+              <td>comments</td>
+              <td>Integer</td>
+              <td>Count of comments on reviews</td>
+            </tr>
+            <tr>
+              <td>bookmarks</td>
+              <td>Integer</td>
+              <td>Count of bookmarks</td>
+            </tr>
+            <tr>
+              <td>readers</td>
+              <td>Integer</td>
+              <td>Count of readers</td>
+            </tr>
+            <tr>
+              <td>ratings</td>
+              <td>Integer</td>
+              <td>Count of ratings</td>
+            </tr>
+            <tr>
+              <td>score</td>
+              <td>Float</td>
+              <td>Average rating score</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <h2>Metadata Field: analyses.publication</h2>
+        <table class="ui-table-fluid ui-table-striped">
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Type</th>
+              <th>Examples or Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>publisher</td>
+              <td>String</td>
+              <td>APS, AMS, Springer, Handawi</td>
+            </tr>
+            <tr>
+              <td>journal</td>
+              <td>String</td>
+              <td>Phys. Rev. A, Ann. Math., Commun. ACM</td>
+            </tr>
+            <tr>
+              <td>year</td>
+              <td>Integer</td>
+              <td>2007</td>
+            </tr>
+            <tr>
+              <td>month</td>
+              <td>String</td>
+              <td>Jan, May, Oct</td>
+            </tr>
+            <tr>
+              <td>volume</td>
+              <td>Integer</td>
+              <td>252</td>
+            </tr>
+            <tr>
+              <td>number</td>
+              <td>String</td>
+              <td>18, 1-3</td>
+            </tr>
+            <tr>
+              <td>doi</td>
+              <td>String</td>
+              <td>10.1103/PhysRevLett.94.181602</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <h2>Metadata Field: analyses.note</h2>
+        <table class="ui-table-fluid ui-table-striped">
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Type</th>
+              <th>Examples or Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>typesetting</td>
+              <td>String</td>
+              <td>TeX, LaTeX, PDFLaTeX, AMS-TeX</td>
+            </tr>
+            <tr>
+              <td>pages</td>
+              <td>Integer</td>
+              <td>97</td>
+            </tr>
+            <tr>
+              <td>language</td>
+              <td>String</td>
+              <td>de, en, es, fr, ja, pt, ru, zh</td>
+            </tr>
+            <tr>
+              <td>license</td>
+              <td>String</td>
+              <td>arXiv, CC BY 3.0, Public Domain</td>
+            </tr>
+            <tr>
+              <td>status</td>
+              <td>String</td>
+              <td>editable, locked</td>
+            </tr>
+            <tr>
+              <td>inspire</td>
+              <td>Integer</td>
+              <td>635599</td>
+            </tr>
+            <tr>
+              <td>adsabs</td>
+              <td>String</td>
+              <td>2004CMaPh.252..189W</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
     <p class="badge"><a href="https://github.com/arxitics/user-guide">Fork me on Github</a></p>
     <div class="progress"><div></div></div>
 
+    <script src="http://oss.arxitics.com/ui-schema/dist/jquery-2.1.3.min.js"></script>
+    <script src="http://oss.arxitics.com/ui-schema/dist/ui-schema-0.2.8.min.js"></script>
+    <script src="http://oss.arxitics.com/ui-schema/dist/icons/forms.js"></script>
     <script src="http://oss.arxitics.com/slides/dist/shower-1.0.6.min.js"></script>
     <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">
