@@ -184,7 +184,7 @@
               </div>
             </form>
           </li>
-          <li class="ui-skip-large">Specify AND conditions on multiple fields
+          <li class="ui-skip-large">Specify <span class="ui-color-warning">AND</span> conditions on multiple fields
             <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
               <div class="ui-input-addon">
                 <input type="search" name="q" value="category: quant-ph journal: Rev. Mod. Phys.">
@@ -247,7 +247,7 @@
               </div>
             </form>
           </li>
-          <li class="ui-skip-large">Match a field in the embedded document without specifying array index
+          <li class="ui-skip-large">Match a field in the embedded document without specifying the index
             <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
               <div class="ui-input-addon">
                 <input type="search" name="q" value="authors.affiliations: IAS">
@@ -263,7 +263,7 @@
       <div>
         <h2>Query Operators</h2>
         <ul>
-          <li>Matches all values that are not equal to a specified value
+          <li>Match all values that are not equal to a specified value
             <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
               <div class="ui-input-addon">
                 <input type="search" name="q" value="note.language[$ne]: en">
@@ -271,7 +271,7 @@
               </div>
             </form>
           </li>
-          <li class="ui-skip-large">Matches any of the values specified in an array
+          <li class="ui-skip-large">Match any of the values specified in an array
             <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
               <div class="ui-input-addon">
                 <input type="search" name="q" value="note.language[$in]: fr, ru">
@@ -279,7 +279,7 @@
               </div>
             </form>
           </li>
-          <li class="ui-skip-large">Matches none of the values specified in an array
+          <li class="ui-skip-large">Match none of the values specified in an array
             <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
               <div class="ui-input-addon">
                 <input type="search" name="q" value="note.language[$nin]: en, fr, ru">
@@ -294,7 +294,7 @@
     <section class="slide">
       <div>
         <ul>
-          <li>Matches values that are greater than a specified value
+          <li>Match values that are greater than a specified value
             <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
               <div class="ui-input-addon">
                 <input type="search" name="q" value="citations.count[$gt]: 1000">
@@ -302,7 +302,7 @@
               </div>
             </form>
           </li>
-          <li class="ui-skip-medium">Matches values that are less than a specified value
+          <li class="ui-skip-medium">Match values that are less than a specified value
             <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
               <div class="ui-input-addon">
                 <input type="search" name="q" value="citations.count[$lt]: 1000">
@@ -310,7 +310,7 @@
               </div>
             </form>
           </li>
-          <li class="ui-skip-medium">Matches values that are greater than or equal to a specified value
+          <li class="ui-skip-medium">Match values that are greater than or equal to a specified value
             <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
               <div class="ui-input-addon">
                 <input type="search" name="q" value="note.pages[$gte]: 200">
@@ -318,7 +318,7 @@
               </div>
             </form>
           </li>
-          <li class="ui-skip-medium">Matches values that are less than or equal to a specified value
+          <li class="ui-skip-medium">Match values that are less than or equal to a specified value
             <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
               <div class="ui-input-addon">
                 <input type="search" name="q" value="note.pages[$lte]: 200">
@@ -426,7 +426,7 @@
     <section class="slide">
       <div>
         <ul class="ui-skip-large">
-          <li class="ui-skip-large">Matches documents that have the specified field
+          <li class="ui-skip-large">Match documents that have the specified field
             <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
               <div class="ui-input-addon">
                 <input type="search" name="q" value="publication.journal[$exists]: true">
@@ -434,7 +434,7 @@
               </div>
             </form>
           </li>
-          <li class="ui-skip-large">Selects documents if a field is of the specified type
+          <li class="ui-skip-large">Select documents if a field is of the specified type
             <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
               <div class="ui-input-addon">
                 <input type="search" name="q" value="publication.number[$type]: 2">
@@ -442,7 +442,7 @@
               </div>
             </form>
           </li>
-          <li class="ui-skip-large">Selects documents if the array field is a specified size
+          <li class="ui-skip-large">Select documents if the array field is a specified size
             <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
               <div class="ui-input-addon">
                 <input type="search" name="q" value="analyses.subjects[$size]: 5">
