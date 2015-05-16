@@ -5,7 +5,7 @@
     <title>User Guide for arXiv Analytics</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=680, user-scalable=no">
-    <link rel="stylesheet" href="http://oss.arxitics.com/ui-schema/dist/ui-schema-0.2.8.min.css">
+    <link rel="stylesheet" href="http://oss.arxitics.com/ui-schema/dist/ui-schema-0.3.0.min.css">
     <link rel="stylesheet" href="http://oss.arxitics.com/slides/dist/shower-bright-1.0.10.min.css">
     <link rel="dns-prefetch" href="http://cdn.mathjax.org/">
     <style>
@@ -69,7 +69,7 @@
           <li>More than 1 million documents</li>
           <li>As many as 50+ metadata fields</li>
           <li>17 single field indexes and 1 text index</li>
-          <li>Supports full-text search, but sometimes <span class="ui-color-danger">slow</span></li>
+          <li>Supports full-text search, but sometimes <span class="ui-color-emphasis">slow</span></li>
           <li>Accepts <a href="http://json.org/">JSON</a> to construct complicated query expressions</li>
         </ul>
       </div>
@@ -127,7 +127,7 @@
               </div>
             </form>
           </li>
-          <li class="ui-skip-large">Only <span class="ui-color-danger">one</span> result is found for your query</li>
+          <li class="ui-skip-large">Only <span class="ui-color-emphasis">one</span> result is found for your query</li>
         </ul>
       </div>
     </section>
@@ -184,7 +184,7 @@
               </div>
             </form>
           </li>
-          <li class="ui-skip-large">Specify <span class="ui-color-warning">AND</span> conditions on multiple fields
+          <li class="ui-skip-large">Specify <span class="ui-color-emphasis">AND</span> conditions on multiple fields
             <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
               <div class="ui-input-addon">
                 <input type="search" name="q" value="category: quant-ph journal: Rev. Mod. Phys.">
@@ -200,7 +200,7 @@
       <div>
         <h2>Search Array Fields</h2>
         <ul>
-          <li>Specify <span class="ui-color-warning">OR</span> conditions
+          <li>Specify <span class="ui-color-emphasis">OR</span> conditions
             <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
               <div class="ui-input-addon">
                 <input type="search" name="q" value="categories: cs.CC, cs.DM">
@@ -208,7 +208,7 @@
               </div>
             </form>
           </li>
-          <li class="ui-skip-large">Specify <span class="ui-color-warning">AND</span> conditions
+          <li class="ui-skip-large">Specify <span class="ui-color-emphasis">AND</span> conditions
             <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
               <div class="ui-input-addon">
                 <input type="search" name="q" value="categories: cs.CC; cs.DM">
@@ -216,7 +216,7 @@
               </div>
             </form>
           </li>
-          <li class="ui-skip-large">Specify <span class="ui-color-warning">OR</span> as well as <span class="ui-color-warning">AND</span> conditions
+          <li class="ui-skip-large">Specify <span class="ui-color-emphasis">OR</span> as well as <span class="ui-color-emphasis">AND</span> conditions
             <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
               <div class="ui-input-addon">
                 <input type="search" name="q" value="categories: cs.CC, cs.DM; math.CO">
@@ -333,7 +333,7 @@
     <section class="slide">
       <div>
         <ul class="ui-skip-large">
-          <li>Join query clauses with a logical <span class="ui-color-warning">OR</span>
+          <li>Join query clauses with a logical <span class="ui-color-emphasis">OR</span>
             <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
               <div class="ui-input-addon">
                 <input type="search" name="q" value="$or[journal]: null $or[doi]: null">
@@ -341,7 +341,7 @@
               </div>
             </form>
           </li>
-          <li class="ui-skip-large">Join query clauses with a logical <span class="ui-color-warning">AND</span>
+          <li class="ui-skip-large">Join query clauses with a logical <span class="ui-color-emphasis">AND</span>
             <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
               <div class="ui-input-addon">
                 <input type="search" name="q" value="$and[journal]: null $and[doi]: null">
@@ -349,7 +349,7 @@
               </div>
             </form>
           </li>
-          <li class="ui-skip-large">Join query clauses with a logical <span class="ui-color-warning">NOR</span>
+          <li class="ui-skip-large">Join query clauses with a logical <span class="ui-color-emphasis">NOR</span>
             <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
               <div class="ui-input-addon">
                 <input type="search" name="q" value="$nor[journal]: null $nor[doi]: null">
@@ -458,7 +458,7 @@
       <div>
         <h2>Date Range</h2>
         <ul>
-          <li>Sepecify the date in the form of <span class="ui-color-warning">yyyy-mm-dd</span> or part of it
+          <li>Sepecify the date in the form of <span class="ui-color-emphasis">yyyy-mm-dd</span> or part of it
             <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
               <div class="ui-input-addon">
                 <input type="search" name="q" value="category: hep-th published: 1991-08">
@@ -466,7 +466,7 @@
               </div>
             </form>
           </li>
-          <li class="ui-skip-large">Sepecify the date with <span class="ui-color-warning">date-range</span> and a special word
+          <li class="ui-skip-large">Sepecify the date with <span class="ui-color-emphasis">date-range</span> and a special word
             <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
               <div class="ui-input-addon">
                 <input type="search" name="q" value="category: hep-th date-range: past-month">
@@ -474,7 +474,7 @@
               </div>
             </form>
           </li>
-          <li class="ui-skip-large">Sepecify the date with <span class="ui-color-warning">date-from</span> and <span class="ui-color-warning">date-to</span>
+          <li class="ui-skip-large">Sepecify the date with <span class="ui-color-emphasis">date-from</span> and <span class="ui-color-emphasis">date-to</span>
             <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
               <div class="ui-input-addon">
                 <input type="search" name="q" value="category: hep-th date-range: custom date-to: 1992">
@@ -556,9 +556,9 @@
         <ul>
           <li>The field names of arrays are plurals</li>
           <li>Keyword-style queries on most fields are case-sensitive</li>
-          <li>Always specify <span class="ui-color-warning">categories</span> to filter eprints</li>
+          <li>Always specify <span class="ui-color-emphasis">categories</span> to filter eprints</li>
           <li>Avoid full-text search when possible</li>
-          <li>Specify a <span class="ui-color-warning">limit</span> if there are maybe too many results</li>
+          <li>Specify a <span class="ui-color-emphasis">limit</span> if there are maybe too many results</li>
           <li>Try to specify more conditions if no results are found</li>
         </ul>
       </div>
@@ -874,7 +874,7 @@
     <div class="progress"><div></div></div>
 
     <script src="http://oss.arxitics.com/ui-schema/dist/jquery-2.1.3.min.js"></script>
-    <script src="http://oss.arxitics.com/ui-schema/dist/ui-schema-0.2.8.min.js"></script>
+    <script src="http://oss.arxitics.com/ui-schema/dist/ui-schema-0.3.0.min.js"></script>
     <script src="http://oss.arxitics.com/ui-schema/dist/icons/forms.js"></script>
     <script src="http://oss.arxitics.com/slides/dist/shower-1.0.6.min.js"></script>
     <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
