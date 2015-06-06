@@ -425,37 +425,6 @@
 
     <section class="slide">
       <div>
-        <ul class="ui-skip-large">
-          <li class="ui-skip-large">Match documents that have the specified field
-            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
-              <div class="ui-input-addon">
-                <input type="search" name="q" value="publication.journal[$exists]: true">
-                <button type="submit"><i data-schema-icon="search">Go!</i></button>
-              </div>
-            </form>
-          </li>
-          <li class="ui-skip-large">Select documents if a field is of the specified type
-            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
-              <div class="ui-input-addon">
-                <input type="search" name="q" value="publication.number[$type]: 2">
-                <button type="submit"><i data-schema-icon="search">Go!</i></button>
-              </div>
-            </form>
-          </li>
-          <li class="ui-skip-large">Select documents if the array field is a specified size
-            <form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form">
-              <div class="ui-input-addon">
-                <input type="search" name="q" value="analyses.subjects[$size]: 5">
-                <button type="submit"><i data-schema-icon="search">Go!</i></button>
-              </div>
-            </form>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="slide">
-      <div>
         <h2>Date Range</h2>
         <ul>
           <li>Sepecify the date in the form of <span class="ui-color-emphasis">yyyy-mm-dd</span> or part of it
